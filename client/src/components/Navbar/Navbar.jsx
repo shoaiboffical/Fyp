@@ -43,8 +43,8 @@ const Navbar = () => {
         <div className={active || pathname !== "/" ? "navbar active" : "navbar "}>
             <div className="container">
                 <div className="logo">
-                    <Link to='/' className='link'>
-                        <span className='log'>fiverr</span>
+                    <Link onClick={() => navigate('gigs?search=Graphics & Design')} className='link'>
+                        <span className='log'>cryptagig </span>
                     </Link>
                     <span className='dot'>.</span>
                 </div>
@@ -55,13 +55,13 @@ const Navbar = () => {
                     </div>
                 </div>}
                 <div className="links">
-                    <span onClick={()=>navigate('/becomeseller')}>fiverr Business</span>
+                    <span onClick={()=>navigate('/becomeseller')}>cryptagig  Business</span>
                     <span className="tooltip ">Explore
                         <span className="tooltiptext">
                             <div className="col">
                                 <div className="item_tooltip">
                                     <h4 className='item_tooltip_header'>Discover</h4>
-                                    <p className='item_tooltip_desc'>Inspiring projects made on Fiverr</p>
+                                    <p className='item_tooltip_desc'>Inspiring projects made on cryptagig </p>
                                 </div>
                                 <div className="item_tooltip">
                                     <h4 className='item_tooltip_header'>Guides</h4>
@@ -80,7 +80,7 @@ const Navbar = () => {
                             <div className="col">
                                 <div className="item_tooltip">
                                     <h4 className='item_tooltip_header'>Community</h4>
-                                    <p className='item_tooltip_desc'>Connect with Fiverr’s team and community</p>
+                                    <p className='item_tooltip_desc'>Connect with cryptagig ’s team and community</p>
                                 </div>
                                 <div className="item_tooltip">
                                     <h4 className='item_tooltip_header'>Podcast</h4>
@@ -91,7 +91,7 @@ const Navbar = () => {
                                     <p className='item_tooltip_desc'>News, information and community stories</p>
                                 </div>
                                 <div className="item_tooltip">
-                                    <h4 className='item_tooltip_header'>Fiverr Workspace</h4>
+                                    <h4 className='item_tooltip_header'>cryptagig  Workspace</h4>
                                     <p className='item_tooltip_desc'>One place to manage your business</p>
                                 </div>
                             </div>
@@ -103,10 +103,14 @@ const Navbar = () => {
                         </img>
                         English
                     </span>
-                    <Link to='/login' className='link' key={333}><span>Sign in</span></Link>
+                    
 
                     {!current_user?.isSeller && <span onClick={e => navigate('/becomeSeller')}>Become a Seller</span>}
-                    {!current_user && <button onClick={e => navigate(`/register`)}>Join</button>}
+                    {!current_user && (<>
+                        <button onClick={e => navigate(`/register`)}>Join</button>
+                    <button onClick={e => navigate(`/register`)}>Join</button>
+                    </>
+                        ) }
                     {
                         current_user && (
                             <div className="user" onClick={() => setopen(!open)}>
@@ -137,31 +141,31 @@ const Navbar = () => {
                 <>
                     <hr />
                     <div className="menu">
-                        <Link key={9983} className='link menulink' to='/'>
+                        <Link key={9983} className='link menulink' to="#" onClick={() => navigate('gigs?search=Graphics & Design')} >
                             Graphics & Design
                         </Link>
-                        <Link key={9883} className='link menulink' to='/'>
+                        <Link key={9883} className='link menulink' to="#" onClick={() => navigate('gigs?search= Video & Animation')}>
                             Video & Animation
                         </Link>
-                        <Link key={9988} className='link menulink' to='/'>
+                        <Link key={9988} className='link menulink' to="#" onClick={() => navigate('gigs?search= Writing & Translation')}>
                             Writing & Translation
                         </Link>
-                        <Link key={9981} className='link menulink' to='/'>
+                        <Link key={9981} className='link menulink' to="#" onClick={() => navigate('gigs?search=AI Services')}>
                             AI Services
                         </Link>
-                        <Link key={9982} className='link menulink' to='/'>
+                        <Link key={9982} className='link menulink' to="#" onClick={() => navigate('gigs?search=Digital Marketing')}>
                             Digital Marketing
                         </Link>
-                        <Link key={9903} className='link menulink' to='/'>
+                        <Link key={9903} className='link menulink' to="#" onClick={() => navigate('gigs?search=Music & Audio')}>
                             Music & Audio
                         </Link>
-                        <Link key={99883} className='link menulink' to='/'>
+                        <Link key={99883} className='link menulink' to="#" onClick={() => navigate('gigs?search=Programming & Tech')}>
                             Programming & Tech
                         </Link>
-                        <Link key={99083} className='link menulink' to='/'>
+                        <Link key={99083} className='link menulink'  to="#" onClick={() => navigate('gigs?search=Business')}>
                             Business
                         </Link>
-                        <Link key={93983} className='link menulink' to='/'>
+                        <Link key={93983} className='link menulink' to="#" onClick={() => navigate('gigs?search=Lifestyle')}>
                             Lifestyle
                         </Link>
                     </div>

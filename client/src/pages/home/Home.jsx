@@ -143,7 +143,7 @@ const Home = () => {
             <div className="features dark">
                 <div className="container">
                     <div className="item">
-                        <h1>fiverr <em><span style={{ fontWeight: '300' }}>business.</span></em></h1>
+                        <h1>cryptagig  <em><span style={{ fontWeight: '300' }}>business.</span></em></h1>
                         <h1>A solution built for <em>business</em></h1>
                         <p >Upgrade to a curated experience to access vetted talent and exclusive tools</p>
                         <div className="title">
@@ -162,7 +162,7 @@ const Home = () => {
                             <img src="/images/check.png" alt="check" />
                             Business payment solutions
                         </div>
-                        <button>Explore Fiverr Business</button>
+                        <button>Explore cryptagig  Business</button>
                     </div>
                     <div className="item">
                         <img src="images/business-desktop-870-x1.webp" alt="imagea" />
@@ -172,12 +172,12 @@ const Home = () => {
             <div className="logo_maker">
                 <div className="items">
                     <div className="left">
-                        <h1>fiverr <span>logomaker.</span></h1>
+                        <h1>cryptagig  <span>logomaker.</span></h1>
                         <p className="first_para">Make an incredible logo<br></br>
                             <em className="first_para_em"> in minutes</em>
                         </p>
                         <p className="second_para">Pre-designed by top talent. Just add your touch.</p>
-                        <button className="logo_button"><strong>Try Fiverr Logo Maker</strong></button>
+                        <button className="logo_button"><strong>Try cryptagig  Logo Maker</strong></button>
                     </div>
                     <div className="right">
                         <img src="/images/logomaker.webp" alt="" />
@@ -186,7 +186,7 @@ const Home = () => {
             </div>
             {/* second slidebar */}
             <div className="secondslide">
-                <p className="second_slider_heading">Inspiring work made on Fiverr</p>
+                <p className="second_slider_heading">Inspiring work made on cryptagig </p>
                 <Slide slidesToShow={4} arrowsScroll={5}>
                     {
                         projects.map(
@@ -205,7 +205,7 @@ const Home = () => {
                 <div className="items">
                     <div className="left">
                         <h1>Suddenly it's all so <em><span className="last_hero_em">doable.</span></em></h1>
-                        <button onClick={e => navigate(`/register`)}>Join Fiverr</button>
+                        <button onClick={e => navigate(`/register`)}>Join cryptagig </button>
                     </div>
                     <div className="right">
                         <img src="/images/last_hero.webp" alt="" />

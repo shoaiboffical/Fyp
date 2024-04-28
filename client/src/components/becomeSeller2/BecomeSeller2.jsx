@@ -10,8 +10,8 @@ const BecomeSeller2 = () => {
                 </div>
                 <div className="item2">
                     <div className="header_item2">
-                        <h1>What makes a successful Fiverr profile?</h1>
-                        <p>Your first impression matters! Create a profile that will stand out from the crowd on Fiverr.</p>
+                        <h1>What makes a successful cryptagig  profile?</h1>
+                        <p>Your first impression matters! Create a profile that will stand out from the crowd on cryptagig .</p>
                     </div>
                     <div className="title">
                         <div className="item">

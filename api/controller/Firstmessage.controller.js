@@ -38,6 +38,7 @@
 // File: controllers/firstmessage.controller.js
 import createError from '../utils/createError.js';
 import Firstmessage from '../models/firstmessage.model.js';
+import Message from '../models/message.model.js';
 import Gig from '../models/gig.model.js';
 import User from '../models/user.model.js';  // Typically, model names are capitalized
 
@@ -60,7 +61,18 @@ export const createOrder = async (req, res, next) => {
         if (!buyer) {
             return res.status(404).send({ message: "User not found" });
         }
-      
+       
+        const existingOrder = await Firstmessage.findOne({
+            buyerId: buyer._id,
+            sellerId: gig.userId
+        });
+
+        if (existingOrder) {
+           
+            // If an order already exists, do nothing or handle appropriately
+            return res.status(409).send({ message: "Order already exists" });
+        }
+        console.log("its not  runnig");
        
  
    //  
@@ -144,6 +156,8 @@ export const getFirstMessagesByUserId = async (req, res, next) => {
   try {
    
       const userId = req.userId; // Assuming 'req.userId' is set from a middleware after authentication
+    //   console.log(userId);
+     // console.log(userId);
       const user = await User.findById(userId);
       if (!user) {
           return res.status(404).send({ message: "User not found" });
@@ -151,15 +165,40 @@ export const getFirstMessagesByUserId = async (req, res, next) => {
   
       const query = { $or: [{ buyerId: userId }, { sellerId: userId }] };
       const messages = await Firstmessage.find(query).lean();
+    //  const isread = await  Message.findById();
+       // Default to true if no details found
+    //    const conversationId =userId+ userId
+    //    const messages24 = await Message.find({
+    //     buyerId: buyerId,
+    //     conversationId: conversationId
+    // });
 
       // Determine the role of the user for dynamic username fetching
       const enhancedMessages = await Promise.all(messages.map(async message => {
+      //  console.log(`Processing message: buyerId=${message.buyerId}, sellerId=${message.sellerId}`);
+
+        const query12 = message.buyerId;
+        const messages12 = await Message.find({ userId: query12 });
+          
           // If the user is the buyer, we need the seller's username, and vice versa
           const otherUserId = message.buyerId === userId ? message.sellerId : message.buyerId;
           const otherUser = await User.findById(otherUserId);
-       //   console.log(otherUser.username);
-          message.username = otherUser ? otherUser.username : 'Unknown User';  // Add username dynamically based on the context
-          return message;
+      //    console.log(messages12.Isread);
+        
+    //  const messageDetails = await Message.findById( message.buyerId); // Assuming there's a link via 'firstMessageId'
+  //    message.isread = messageDetails ? messageDetails.isread : true;
+         if(messages12.Isread==false){
+            message.notification="New Message";
+            message.username = otherUser ? otherUser.username : 'Unknown User';  // Add username dynamically based on the context
+            return message;
+
+         }else{
+            message.notification="No  New Message";
+            message.username = otherUser ? otherUser.username : 'Unknown User';  // Add username dynamically based on the context
+            return message;
+
+         }
+         
       }));
 
       res.status(200).send(enhancedMessages);

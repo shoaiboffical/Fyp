@@ -29,7 +29,9 @@ const Message = () => {
       queryClient.invalidateQueries(["messages"]);
     },
   });
+  console.log("-----------------")
   console.log(currentUserData);
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     mutation.mutate({

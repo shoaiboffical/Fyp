@@ -107,6 +107,7 @@ import { useNavigate } from "react-router-dom";
 const Orders = () => {
  
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
     const navigate = useNavigate();
 
     const { isLoading, error, data } = useQuery({
@@ -119,12 +120,15 @@ const Orders = () => {
     });
  // console.log(data);
     const handleContact = async (order) => {
+       
         const sellerId = order.sellerId;
         const buyerId = order.buyerId;
         const id = sellerId + buyerId;
         try {
+           
             const res = await newRequest.get(`/conversations/single/${id}`);
             navigate(`/message/${res.data.id}`);
+           
         } catch (error) {
             if (error.response && error.response.status === 404) {
                 const res = await newRequest.post(`/conversations`, { to: currentUser.isSeller ? buyerId : sellerId });
@@ -143,6 +147,7 @@ const Orders = () => {
                     <thead>
                         <tr>
                             <th>UserNmae</th>
+                            <th>New Message</th>
                             <th>Message</th>
                             
                         </tr>
@@ -151,7 +156,11 @@ const Orders = () => {
                         {data && data.length > 0 ? data.map((order) => (
                             <tr key={order._id}>
                                
+                                
                                 <td>{order.username}</td>
+                                <td>{order.notification}</td>
+                                
+
                                 <td>
                                     <img className="message" src="/images/message.png" alt="" onClick={() => handleContact(order)} />
                                 </td>

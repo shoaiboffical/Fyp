@@ -7,7 +7,7 @@ const BecomeSeller=()=>{
         <div className="becomeseller">
                 <div className="container">
                     <div className="item">
-                        <h1>Ready to start selling on Fiverr? Here’s the breakdown:</h1>
+                        <h1>Ready to start selling on cryptagig ? Here’s the breakdown:</h1>
                         <hr />
                         <div className="title">
                             <img src="/images/becomeseller1.svg" alt="check" />

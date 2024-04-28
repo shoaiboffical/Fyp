@@ -14,6 +14,10 @@ const messageSchema = new Schema({
     type:String,
     require:true,
  },
+ Isread:{
+   type:Boolean,
+   require:true,
+},
 },{
 timestamps:true
 });
